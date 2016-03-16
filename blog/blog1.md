@@ -75,4 +75,18 @@ The complete logs containing the above errors can be found in the blog directory
 The above solutions were suggested to me in response to a third forum <a href="https://discuss.erpnext.com/t/error-cant-open-config-file-when-i-run-bench-start/11088/12">post</a>.
 The issues seems to be with the process ran by `vagrant up`. It is suppose to install a frappe app in the /vagrant/freppe-bench/apps directory. Over the next two weeks, I intended on looking for errors that occur when running `vagrant up` and look for the root g directory in my forked repo of erpnext_vagrant.
 
+The Steps I took to install and run erpnext are below.
 
+1. `git clone https://github.com/bergstrat/erpnext_vagrant`
+2. `cd erpnext_vagrant`
+3. `vagrant up`
+4. `vagrant ssh`
+5. `cd /vagrant/frappe-bench/sites`
+6. `mkdir site1.local`
+7. `cd site1.local`
+8. `vim site_config.json`
+9. Insert` "developer_mode" :1 ` and exit vim
+10. `cd /vagrant/frappe-bench`
+11. `bench setup redis_async_broker`
+12. `bench setup redis_cache`
+13. `bench start`
