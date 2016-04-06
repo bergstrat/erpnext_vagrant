@@ -1,8 +1,8 @@
-ty-32:/vagrant/frappe-bench$ bench setup redis-async-broker
-vagrant@vagrant-ubuntu-trusty-32:/vagrant/frappe-bench$ bench setup redis-cache
-vagrant@vagrant-ubuntu-trusty-32:/vagrant/frappe-bench$ bench start
-02:03:36 system               | watch.1 started (pid=12264)
-02:03:36 system               | redis_celery.1 started (pid=12263)
+`ty-32:/vagrant/frappe-bench$ bench setup redis-async-broker`
+`vagrant@vagrant-ubuntu-trusty-32:/vagrant/frappe-bench$ bench setup redis-cache`
+`vagrant@vagrant-ubuntu-trusty-32:/vagrant/frappe-bench$ bench start`
+`02:03:36 system               | watch.1 started (pid=12264)`
+`02:03:36 system               | redis_celery.1 started (pid=12263)`
 02:03:36 redis_celery.1       | [12271] 16 Mar 02:03:36.656 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
 02:03:36 redis_celery.1       | [12271] 16 Mar 02:03:36.657 # Unable to set the max number of files limit to 10032 (Operation not permitted), setting the max clients configuration to 3984.
 02:03:36 redis_celery.1       | [12271] 16 Mar 02:03:36.657 # Warning: 32 bit instance detected but no memory limit set. Setting 3 GB maxmemory limit with 'noeviction' policy now.
