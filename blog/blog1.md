@@ -9,15 +9,22 @@ I commited my editted README.md file <a href="https://github.com/bergstrat/erpne
 Going back to the /vagrant/frappe-bench directory, I ran `bench start` which... ran with errors.
 
 redis_async_broker.1 started (pid=12182)
-02:02:26 redis_async_broker.1 | [12193] 16 Mar 02:02:26.652 # Fatal error, can't open config file 'config/redis_async_broker.conf'
-02:02:26 system               | redis_async_broker.1 stopped (rc=1)
-02:02:26 system               | web.1 started (pid=12179)
-02:02:26 system               | async_worker.1 started (pid=12181)
-02:02:26 system               | watch.1 started (pid=12180)
-02:02:26 system               | redis_cache.1 started (pid=12183)
-02:02:26 redis_cache.1        | [12195] 16 Mar 02:02:26.662 # Fatal error, can't open config file 'config/redis_cache.conf'
-02:02:26 system               | redis_cache.1 stopped (rc=1)
 
+02:02:26 redis_async_broker.1 | [12193] 16 Mar 02:02:26.652 # Fatal error, can't open config file 'config/redis_async_broker.conf'
+
+02:02:26 system               | redis_async_broker.1 stopped (rc=1)
+
+02:02:26 system               | web.1 started (pid=12179)
+
+02:02:26 system               | async_worker.1 started (pid=12181)
+
+02:02:26 system               | watch.1 started (pid=12180)
+
+02:02:26 system               | redis_cache.1 started (pid=12183)
+
+02:02:26 redis_cache.1        | [12195] 16 Mar 02:02:26.662 # Fatal error, can't open config file 'config/redis_cache.conf'
+
+02:02:26 system               | redis_cache.1 stopped (rc=1)
 
 The solution was to run two commands:
 1. `bench setup redis_async_broker`
@@ -26,48 +33,86 @@ The solution was to run two commands:
 Running `bench start` once more, I got a new error.
 
 connections on port 11311
+
 02:03:36 system               | socketio.1 started (pid=12268)
+
 02:03:36 system               | worker.1 started (pid=12288)
+
 02:03:36 system               | longjob_worker.1 started (pid=12298)
+
 02:03:37 socketio.1           | module.js:341
+
 02:03:37 socketio.1           |     throw err;
+
 02:03:37 socketio.1           |     ^
+
 02:03:37 socketio.1           |
+
 02:03:37 socketio.1           | Error: Cannot find module '/vagrant/frappe-bench/apps/frappe/socketio.js'
+
 02:03:37 socketio.1           |     at Function.Module._resolveFilename (module.js:339:15)
+
 02:03:37 socketio.1           |     at Function.Module._load (module.js:290:25)
+
 02:03:37 socketio.1           |     at Function.Module.runMain (module.js:447:10)
+
 02:03:37 socketio.1           |     at startup (node.js:141:18)
+
 02:03:37 socketio.1           |     at node.js:933:3
+
 02:03:37 system               | socketio.1 stopped (rc=1)
 
 
 I tried running `bench setup socketio`, hoping to get similiar results to the errors mentioned previously but received the following error:
 
 /bin/sh: 1: npm: not found
+
 Traceback (most recent call last):
+
   File "/usr/local/bin/bench", line 9, in <module>
+
       load_entry_point('bench==0.0.0', 'console_scripts', 'bench')()
+
         File "/vagrant/bench-repo/bench/cli.py", line 60, in cli
+
 	    bench()
+
 	      File "/usr/local/lib/python2.7/dist-packages/click/core.py", line 716, in __call__
+
 	          return self.main(*args, **kwargs)
+
 		    File "/usr/local/lib/python2.7/dist-packages/click/core.py", line 696, in main
+
 		        rv = self.invoke(ctx)
+
 			  File "/usr/local/lib/python2.7/dist-packages/click/core.py", line 1060, in invoke
+
 			      return _process_result(sub_ctx.command.invoke(sub_ctx))
+
 			        File "/usr/local/lib/python2.7/dist-packages/click/core.py", line 1060, in invoke
+
 				    return _process_result(sub_ctx.command.invoke(sub_ctx))
+
 				      File "/usr/local/lib/python2.7/dist-packages/click/core.py", line 889, in invoke
+
 				          return ctx.invoke(self.callback, **ctx.params)
+
 					    File "/usr/local/lib/python2.7/dist-packages/click/core.py", line 534, in invoke
+
 					        return callback(*args, **kwargs)
+
 						  File "/vagrant/bench-repo/bench/cli.py", line 487, in _setup_socketio
+
 						      setup_socketio()
+
 						        File "/vagrant/bench-repo/bench/utils.py", line 115, in setup_socketio
-							    exec_cmd("npm install socket.io redis express superagent cookie", cwd=bench)
+
+							    exec_cmd("npm install socket.io redis express superagent cookie", 
+							    cwd=bench)
 							      File "/vagrant/bench-repo/bench/utils.py", line 105, in exec_cmd
+							    
 							          raise CommandFailedError(cmd)
+							
 								  bench.utils.CommandFailedError: npm install socket.io redis express superagent cookie
 
 The complete logs containing the above errors can be found in the blog directory of my forked repo of erpnext_vagrant.
