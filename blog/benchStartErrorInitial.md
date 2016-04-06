@@ -1,4 +1,4 @@
-02:02:26 system               | workerbeat.1 started (pid=12178)##
+`02:02:26 system               | workerbeat.1 started (pid=12178)`
 02:02:26 system               | redis_async_broker.1 started (pid=12182)
 02:02:26 redis_async_broker.1 | [12193] 16 Mar 02:02:26.652 # Fatal error, can't open config file 'config/redis_async_broker.conf'
 02:02:26 system               | redis_async_broker.1 stopped (rc=1)
