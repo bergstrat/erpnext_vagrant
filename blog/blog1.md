@@ -1,6 +1,7 @@
 Getting Started with ERPNext Using Vagrant
 
 --------------------------------------------
+```
 
 <a href="https://erpnext.com/">ERPNEXT</a> is a web based software that helps businesses with processes related to accounts payable, inventory management, human resources etc. With my experince working in accounting, I felt this was the perfect project to contribute to. The project was suggested to me through the reddit community in r/opensource. ERPNExt had an active community and straight forward install instructions. I introduced myself <a href="https://discuss.erpnext.com/t/getting-erpnext-installed-for-developing/10877/3">here</a> and was ready to get started. As recommended, I decided to install the program for developement using a vagrant environment. 
 The instructions to do so can be found <a href="https://github.com/frappe/erpnext_vagrant/blob/master/README.md">here</a>. For my first attempt at installation, I followed the instructions exactly as stated.
@@ -146,3 +147,4 @@ The Steps I took to install and run erpnext are below.
 11. `bench setup redis_async_broker`
 12. `bench setup redis_cache`
 13. `bench start`
+```
