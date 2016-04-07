@@ -1,4 +1,4 @@
-`02:02:26 system               | workerbeat.1 started (pid=12178)`
+```02:02:26 system               | workerbeat.1 started (pid=12178)```
 
 `02:02:26 system               | redis_async_broker.1 started (pid=12182)`
 
