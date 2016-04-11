@@ -1,4 +1,4 @@
-```==> default: Traceback (most recent call last):
+==> default: Traceback (most recent call last):
 
 ==> default:   File "/usr/local/bin/virtualenv", line 11, in <module>
 
@@ -96,4 +96,4 @@
 
 ==> default: 
 
-==> default: CommandFailedError```
+==> default: CommandFailedError
