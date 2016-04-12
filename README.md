@@ -12,12 +12,10 @@
 2. Make erpnext_vagrant your working directory with `cd erpnext_vagrant`
 3. Start your virtual machine by running `vagrant up`
 4. Connect to your guest system via SSH with `vagrant ssh`
-5. Set `"developer_mode": 1` in `/vagrant/frappe-bench/sites/site1.local/site_config.json`, for example by running `vim /vagrant/frappe-bench/sites/site1.local/site_config.json`. When in vim press `i` to insert text. After inserting press `ESC` and write `:wq` to write and quit the file. More on vim here https://www.linux.com/learn/tutorials/228600-vim-101-a-beginners-guide-to-vim.
-If you get the following error: "E212: Cannot open file for writing" when trying to write the file, exit without saving and run the following commads:
-`cd /vagrant/frappe-bench/sites` - makes /vagrant/frappe-bench/sites your working directory
-`mkdir site1.local` - creates site1.local directory
-`cd site1.local` - makes /vagrant/frappe-bench/sites/site1.local your working directory
-`vim site_config.json` - opens site_config.json to be written
-Proceed to write and quit the file.
-6. Go to your frappe-bench folder with `cd /vagrant/frappe-bench/` and start bench with `bench start`
-7. Open your browser on your host system and work on your ERPNExt by browsing to `http://localhost:8080/` or `http://127.0.0.1:8080`
+5. run `bench init frappe-bench`
+6. make frappe-bench your working directory with `cd frappe-bench`
+7. run `bench new-site site1.local`. You will be prompted for a SQL password which is "root". You will then be asked to enter and reenter a password which you will use to log into ERPNext.
+8. Set `"developer_mode": 1` in `/vagrant/frappe-bench/sites/site1.local/site_config.json`, for example by running `vim /vagrant/frappe-bench/sites/site1.local/site_config.json`. When in vim press `i` to insert text. After inserting press `ESC` and write `:wq` to write and quit the file. More on vim here https://www.linux.com/learn/tutorials/228600-vim-101-a-beginners-guide-to-vim.
+9. Go to your frappe-bench folder with `cd /vagrant/frappe-bench/` and run `bench install-app erpnext`
+10. start bench with `bench start`
+11. Open your browser on your host system and work on your ERPNExt by browsing to `http://localhost:8080/` or `http://127.0.0.1:8080`
