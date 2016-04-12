@@ -49,7 +49,7 @@ earlier. I crossed my fingers and went to localhost:8080. To my suprise, I saw a
 
 I logged in under the username `Administrator` and the password I had entered when I ran `bench new-site site1.local`. I finished creating my profile and I was done. I was ready to start working on the development of ERPNext. I shut down vagrant and called it a day. 
 
-When I went back into vagrant, when I ran `bench start` I landed on a slightly different "test" screen made for developers. I am not sure if it was me completing the profile creation process or if rerunning vagrant that was what made the change the landing screen, but that is neither here nor there.
+When I went back into vagrant and ran `bench start` I landed on a slightly different "test" screen made for developers. I am not sure if it was me completing the profile creation process or if rerunning vagrant that was what made the change the landing screen, but that is neither here nor there.
 
 The final, complete and seemingly correct installation instructions are:
 
