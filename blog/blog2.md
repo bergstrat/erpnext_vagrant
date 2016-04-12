@@ -1,9 +1,9 @@
 On with the Journey to Properly Install ERPNext with Vagrant
 ---------------------------------------------------------------
 
-As of the end of my last blog post, I had a broken version of ERPNext installed within a vagrant environment. In order to find and fix
+```As of the end of my last blog post, I had a broken version of ERPNext installed within a vagrant environment. In order to find and 
 
-the issues causing the program to not be installed correctly, I deleted my local repo so I could reinstall ERPNext and document any 
+fixthe issues causing the program to not be installed correctly, I deleted my local repo so I could reinstall ERPNext and document any
 
 errors that would occur during installation. I recloned my git repo and I was on my way. I ran `vagrant up` and monitored the console 
 
@@ -60,14 +60,25 @@ here nor there.
 
 The final, complete and seemingly correct installation instructions are:
 `vagrant up`
+
 `vagrant ssh`
+
 `bench init frappe-bench`
+
 `cd frappe-bench`
+
 `bench get-app erpnext https://github.com/frappe/erpnext`
+
 `bench new-site site1.local` using password "root"
+
 `cd sites/site1.local`
+
 `vim site_config.json` adding in the line `"developer_mode:1"`
+
 `cd ..`
+
 `cd ..`
+
 `bench install-app erpnext`
+
 `bench start`       
