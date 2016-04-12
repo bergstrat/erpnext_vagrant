@@ -1,41 +1,41 @@
 On with the Journey to Properly Install ERPNext with Vagrant
 ---------------------------------------------------------------
 
-```As of the end of my last blog post, I had a broken version of ERPNext installed within a vagrant environment. In order to find and 
-
+As of the end of my last blog post, I had a broken version of ERPNext installed within a vagrant environment. In order to find and 
 fixthe issues causing the program to not be installed correctly, I deleted my local repo so I could reinstall ERPNext and document any
+errors that would occur during installation.
 
-errors that would occur during installation. I recloned my git repo and I was on my way. I ran `vagrant up` and monitored the console 
+I recloned my git repo and I was on my way. I ran `vagrant up` and monitored the console as it installed.
 
-as it installed. I found multiple errors that occured during the installation process which I documented and uploaded to the blog 
+I found multiple errors that occured during the installation process which I documented and uploaded to the blog directory of my git repo. 
 
-directory of my git repo. Once the install process was complete, I ran `vagrant ssh` and I was back into the vagrant environment. 
+Once the install process was complete, I ran `vagrant ssh` and I was back into the vagrant environment. 
 
-But... things were different this time. I did not have a `frappe-bench` folder in vagrant/ and some of the `bench` commands no longer 
+But... things were different this time. 
 
-existed; specifically `bench setup redis_async_broker`. Because of the change of existing commands, I can only assume changes have 
+I did not have a `frappe-bench` folder in vagrant/ and some of the `bench` commands no longer 
+existed; specifically `bench setup redis_async_broker`. 
 
-been made to the `frappe-bench` software since my last blog post. At this point, I was quite confused as to how to proceed. The few 
+Because of the change of existing commands, I can only assume changes have been made to the `frappe-bench` software since my last blog post.
 
-things I had working during my last blog post no longer existed. SO, I figured I would try installing `frappe-bench` and `erpnext` 
+At this point, I was quite confused as to how to proceed. The few things I had working during my last blog post no longer existed. 
 
-manually in my vagrant environment following the instructions found <a 
+SO, I figured I would try installing `frappe-bench` and `erpnext` manually in my vagrant environment following the instructions found <a 
 href="https://github.com/frappe/bench#setting-up-erpnext">here</a>.
 
 I ran `bench init frappe-bench` which seemed to work without error. Progress!
 
-I then ran `cd frappe-bench` to make `frappe-bench` my working directory followed by `bench get-app https://github.com/frappe/erpnext`
+I then ran `cd frappe-bench` to make `frappe-bench` my working directory 
 
-which also seemed to do what it is suppose to do.
+followed by `bench get-app https://github.com/frappe/erpnext`which also seemed to do what it is suppose to do.
 
-The next command I ran was `bench new-site site1.local`. In the last blog post, I simply created a directory in sites called 
+The next command I ran was `bench new-site site1.local`. 
 
-`site1.local`. Though this doesn't account for the frappe app that should have been installed with `vagrant up`, I imagine this was a 
+In the last blog post, I simply created a directory in sites called `site1.local`. Though this doesn't account for the frappe app that should have been installed with `vagrant up`,
+I imagine this was a source of some of the errors that occured when I ran `bench start`. 
+In summary, a bench site and a directory are not the same thing! 
 
-source of some of the errors that occured when I ran `bench start`. In summary, a bench site and a directory are not the same thing! 
-
-When running `bench new-site1.local`, I was prompted for a "MYSQL Password" which, after some googling, was "root". I was then 
-
+When running `bench new-site1.local`, I was prompted for a "MYSQL Password" which, after some googling, I found out was "root". I was then 
 prompted to enter and reenter a password which would later be used to log in to ERPNext.
 
 One the site was created, I ran `cd sites/site1.local` then `vim site_config.json` which, unlike before, already existed. Within, I 
