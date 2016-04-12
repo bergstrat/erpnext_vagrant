@@ -38,47 +38,41 @@ In summary, a bench site and a directory are not the same thing!
 When running `bench new-site1.local`, I was prompted for a "MYSQL Password" which, after some googling, I found out was "root". I was then 
 prompted to enter and reenter a password which would later be used to log in to ERPNext.
 
-One the site was created, I ran `cd sites/site1.local` then `vim site_config.json` which, unlike before, already existed. Within, I 
+One the site was created, I ran `cd sites/site1.local` then `vim site_config.json` which, unlike before, already existed. 
 
-added the line `developer_mode":1`, saved and quit.
+Within, I added the line `developer_mode":1`, saved and quit.
 
 I made `vagrant/frappe-bench` my working directory and ran the last install command `bench install-app erpnext`.
 
 Now for the moment of truth... I ran `bench start` which seemed to put giberish on the screen different than the giberish I saw weeks 
+earlier. I crossed my fingers and went to localhost:8080. To my suprise, I saw a login screen! 
 
-early. I crossed my fingers and went to localhost:8080. To my suprise, I saw a login screen. I logged in under the username 
+I logged in under the username `Administrator` and the password I had entered when I ran `bench new-site site1.local`. I finished creating my profile and I was done. I was ready to start working on the development of ERPNext. I shut down vagrant and called it a day. 
 
-`Administrator` and with the password I had entered when I ran `bench new-site site1.local`. I finished creating my profile and I was 
-
-done. I was ready to start working on the development of ERPNext. I shut down vagrant and called it a day. When I went back into 
-
-vagrant, when I ran `bench start` I landed on a slightly different "test" screen made for developers. I am not sure if it was me 
-
-completing the profile creation process or if rerunning vagrant that was what made the change the landing screen, but that is neither 
-
-here nor there.
+When I went back into vagrant, when I ran `bench start` I landed on a slightly different "test" screen made for developers. I am not sure if it was me completing the profile creation process or if rerunning vagrant that was what made the change the landing screen, but that is neither here nor there.
 
 The final, complete and seemingly correct installation instructions are:
-`vagrant up`
 
-`vagrant ssh`
+1. `vagrant up`
 
-`bench init frappe-bench`
+2. `vagrant ssh`
 
-`cd frappe-bench`
+3. `bench init frappe-bench`
 
-`bench get-app erpnext https://github.com/frappe/erpnext`
+4. `cd frappe-bench`
 
-`bench new-site site1.local` using password "root"
+5. `bench get-app erpnext https://github.com/frappe/erpnext`
 
-`cd sites/site1.local`
+6. `bench new-site site1.local` using password "root"
 
-`vim site_config.json` adding in the line `"developer_mode:1"`
+7. `cd sites/site1.local`
 
-`cd ..`
+8. `vim site_config.json` adding in the line `"developer_mode:1"`
 
-`cd ..`
+9. `cd ..`
 
-`bench install-app erpnext`
+10. `cd ..`
 
-`bench start`       
+11. `bench install-app erpnext`
+
+12. `bench start`       
